@@ -8,8 +8,6 @@ Resources:
       Url: ''  # Placeholder for OIDC provider URL
       ClientIdList: 
         - ''  # Placeholder for client ID
-      ThumbprintList: 
-        - ''  # Placeholder for thumbprint
 
 Outputs:
   OIDCProviderArn:

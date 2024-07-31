@@ -1,0 +1,18 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Principal": {
+                "Federated": "arn:aws:iam::xxxxxxxxxxxx:oidc-provider/job-oidc.dnanexus.com"
+            },
+            "Action": "sts:AssumeRoleWithWebIdentity",
+            "Condition": {
+                "StringEquals": {
+                    "job-oidc.dnanexus.com:aud": "xxxx",
+                    "job-oidc.dnanexus.com:sub": "project_id;project-xxxxx;launched_by;user-xxxxx"
+                }
+            }
+        }
+    ]
+}

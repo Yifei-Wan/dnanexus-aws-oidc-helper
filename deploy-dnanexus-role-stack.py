@@ -104,6 +104,24 @@ def get_stack_events(client, stack_name: str, start_time: datetime) -> None:
             else:
                 logging.info(message)
 
+def get_stack_output(client: Any, stack_name: str, output_key: str) -> Optional[str]:
+    """
+    Retrieve the specified output value from the CloudFormation stack.
+
+    Args:
+        client (Any): Boto3 CloudFormation client.
+        stack_name (str): Name of the CloudFormation stack.
+        output_key (str): Key of the output value to retrieve.
+
+    Returns:
+        Optional[str]: The output value, or None if not found.
+    """
+    response = client.describe_stacks(StackName=stack_name)
+    for output in response['Stacks'][0]['Outputs']:
+        if output['OutputKey'] == output_key:
+            return output['OutputValue']
+    return None
+
 def deploy_cloudformation_stack(template_file: str, stack_name: str, profile: str, update_stack: bool) -> bool:
     logging.info(f"Using AWS profile: {profile}")
     session = boto3.Session(profile_name=profile)
@@ -211,6 +229,13 @@ def main() -> None:
         success = deploy_cloudformation_stack(output_file, args.stack_name, args.profile, args.update_stack)
         if success:
             logging.info("Stack deployment was successful.")
+            session = boto3.Session(profile_name=args.profile)
+            client = session.client('cloudformation')
+            iam_role_arn = get_stack_output(client, args.stack_name, 'DNANexusRoleArn')
+            if iam_role_arn:
+                print(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
+                logging.info(f"IAM Role ARN: {iam_role_arn}")
+                print("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<")
         if args.rm_yaml:
             os.remove(output_file)
 

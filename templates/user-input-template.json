@@ -1,0 +1,8 @@
+{
+    "Url": "https://example.com",
+    "ClientIdList": ["example-audience"],
+    "Aud": "example-audience",
+    "ProjectId": "project-1234567890abcdef",
+    "LaunchedBy": "user@example.com",
+    "BucketName": "S3Backet"
+}

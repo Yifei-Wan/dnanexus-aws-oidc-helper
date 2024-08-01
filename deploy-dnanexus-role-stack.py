@@ -210,7 +210,7 @@ def main() -> None:
     else:
         success = deploy_cloudformation_stack(output_file, args.stack_name, args.profile, args.update_stack)
         if success:
-            logging.info("Stack deployment initiated successfully.")
+            logging.info("Stack deployment was successful.")
         if args.rm_yaml:
             os.remove(output_file)
 

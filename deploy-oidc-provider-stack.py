@@ -278,7 +278,7 @@ def main() -> None:
     else:
         success = deploy_cloudformation_stack(output_file, args.stack_name, args.profile, args.update_stack)
         if success:
-            logging.info("Stack deployment initiated successfully.")
+            logging.info("Stack deployment was successful.")
             session = boto3.Session(profile_name=args.profile)
             client = session.client('cloudformation')
             oidc_provider_arn = get_stack_output(client, args.stack_name, 'OIDCProviderArn')

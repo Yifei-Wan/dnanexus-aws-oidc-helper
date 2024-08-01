@@ -1,0 +1,16 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: CloudFormation template to create a DNANexus role in AWS
+
+Resources:
+  DNANexusRole:
+    Type: 'AWS::IAM::Role'
+    Properties:
+      AssumeRolePolicyDocument:  # Placeholder for trust policy
+      Policies:  # Placeholder for S3 policy
+        - PolicyName: "S3AccessPolicy"
+          PolicyDocument:  # Placeholder for S3 policy
+
+Outputs:
+  DNANexusRoleArn:
+    Description: The ARN of the DNANexus role
+    Value: !GetAtt DNANexusRole.Arn

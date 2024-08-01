@@ -2,7 +2,7 @@ AWSTemplateFormatVersion: '2010-09-09'
 Description: CloudFormation template to create an OIDC provider in AWS
 
 Resources:
-  MyOIDCProvider:
+  OIDCProvider:
     Type: 'AWS::IAM::OIDCProvider'
     Properties: 
       Url: ''  # Placeholder for OIDC provider URL
@@ -12,4 +12,4 @@ Resources:
 Outputs:
   OIDCProviderArn:
     Description: The ARN of the OIDC provider
-    Value: !GetAtt MyOIDCProvider.Arn
+    Value: !GetAtt OIDCProvider.Arn

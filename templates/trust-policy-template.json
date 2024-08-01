@@ -4,13 +4,13 @@
         {
             "Effect": "Allow",
             "Principal": {
-                "Federated": "arn:aws:iam::xxxxxxxxxxxx:oidc-provider/job-oidc.dnanexus.com"
+                "Federated": "placeholder"
             },
             "Action": "sts:AssumeRoleWithWebIdentity",
             "Condition": {
                 "StringEquals": {
-                    "job-oidc.dnanexus.com:aud": "xxxx",
-                    "job-oidc.dnanexus.com:sub": "project_id;project-xxxxx;launched_by;user-xxxxx"
+                    "job-oidc.dnanexus.com:aud": "placeholder_aud",
+                    "job-oidc.dnanexus.com:sub": "project_id;placeholder_project_id;launched_by;placeholder_launched_by"
                 }
             }
         }

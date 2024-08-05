@@ -1,0 +1,8 @@
+{
+    "Url": "https://job-oidc.dnanexus.com",
+    "ClientIdList": ["dfci"],
+    "Aud": "dfci",
+    "ProjectId": "project-GY4VJ5j0PZK3pg02qqFKvK3Q",
+    "LaunchedBy": "user-yifei_wan_dfci.harvard.edu",
+    "BucketName": "dnanexus-nextflow-dev"
+}
